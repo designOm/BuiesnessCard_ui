@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Hello World</title>
+		<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+		<!-- Don't use this in production: -->
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
+	<body>
+		<div id="root"></div>
+		<script type="text/babel">
+     const  getURIParamsByName = (name) => new URLSearchParams(window.location.search).get(name)
+			const App = () => {
+				return (
+					<div className="container">
+						<div className="card">
+							<div className="card_image">
+								<img
+									src={
+										getURIParamsByName("dp")??"https://www.aayag.com/wp-content/uploads/2021/08/free-profile-photo-whatsapp-3.png"
+									}
+									alt="Your Name"
+								/>
+							</div>
+							<h1>{getURIParamsByName("name")??"Om Prakash sah"}</h1>
+							<div className="contact">
+								<p>Phone: <a href={`tel:${getURIParamsByName("phone")??"9804627991"}`}> {getURIParamsByName("phone")??"Your Phone number"} </a> </p>
+								<p>Email: <a href={`mailto:${getURIParamsByName("email")??"omkolkata33@gmail.com"}`}>{getURIParamsByName("email")??"Your Email"}</a> </p>
+							</div>
+						</div>
+					</div>
+				);
+			};
+
+			ReactDOM.render(<App />, document.getElementById("root"));
+		</script>
+		<!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this section for a production-ready setup with JSX:
+      https://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+
+      In a larger project, you can use an integrated toolchain that includes JSX instead:
+      https://reactjs.org/docs/create-a-new-react-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      https://reactjs.org/docs/react-without-jsx.html
+    -->
+	</body>
+</html>
